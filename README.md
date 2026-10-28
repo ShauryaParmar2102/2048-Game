@@ -51,8 +51,6 @@ This project features a modern dark-themed interface, score tracking, achievemen
 
 Achievements are saved locally in your browser.
 
-## 🚀 Getting Started
-
 ### Prerequisites
 
 - A modern web browser such as Chrome, Edge or Firefox.
