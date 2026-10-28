@@ -24,8 +24,8 @@ This project features a modern dark-themed interface, score tracking, achievemen
 
 | Technology | Purpose |
 |---|---|
-| HTML5 | Game structure and interface |
-| CSS3 | Styling, layout and animations |
+| HTML | Game structure and interface |
+| CSS | Styling, layout and animations |
 | JavaScript | Game logic, tile movement and achievements |
 | Local Storage | Saving best scores and unlocked achievements |
 | Visual Studio Code | Development environment |
