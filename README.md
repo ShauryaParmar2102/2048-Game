@@ -19,7 +19,6 @@ This project features a modern dark-themed interface, score tracking, achievemen
 - 🎨 **Modern UI** – Dark-themed design with purple accents.
 - ✨ **Tile Animations** – Animated appearance of newly generated tiles.
 - 🔄 **Restart Game** – Start a new game without losing your best score.
-- 🗑️ **Reset Best Score** – Clear your saved record when you want a fresh challenge.
 
 ## 🛠️ Technologies Used
 
