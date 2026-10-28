@@ -1,0 +1,562 @@
+
+/* General page styling */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: #111827;
+    color: #f9fafb;
+    margin: 0;
+    padding: 30px 16px;
+}
+
+/* Main heading */
+h1 {
+    font-size: 48px;
+    color: #f9fafb;
+    margin-bottom: 20px;
+}
+
+/* Horizontal line */
+hr {
+    width: 500px;
+    max-width: 90%;
+    border: none;
+    border-top: 1px solid #475569;
+}
+
+/* Score display */
+h2 {
+    color: #cbd5e1;
+    font-size: 24px;
+}
+
+/* Game Over message */
+#game-over {
+    color: #f87171;
+    font-weight: bold;
+}
+
+/* Main game board */
+#board {
+    width: 400px;
+    height: 400px;
+    max-width: calc(100vw - 52px);
+    max-height: calc(100vw - 52px);
+    background-color: #334155;
+    border: 10px solid #334155;
+    border-radius: 12px;
+
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
+    box-sizing: content-box;
+}
+
+/* Default styling for every tile */
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #475569;
+    border-radius: 6px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+    min-width: 0;
+    min-height: 0;
+}
+
+/* Tile containing 2 */
+.x2 {
+    background-color: #e2e8f0;
+    color: #1e293b;
+}
+
+/* Tile containing 4 */
+.x4 {
+    background-color: #c4b5fd;
+    color: #1e293b;
+}
+
+/* Tile containing 8 */
+.x8 {
+    background-color: #a78bfa;
+    color: #ffffff;
+}
+
+/* Tile containing 16 */
+.x16 {
+    background-color: #8b5cf6;
+    color: #ffffff;
+}
+
+/* Tile containing 32 */
+.x32 {
+    background-color: #7c3aed;
+    color: #ffffff;
+}
+
+/* Tile containing 64 */
+.x64 {
+    background-color: #4f46e5;
+    color: #ffffff;
+}
+
+/* Tile containing 128 */
+.x128 {
+    background-color: #4338ca;
+    color: #ffffff;
+    font-size: 28px;
+}
+
+/* Tile containing 256 */
+.x256 {
+    background-color: #3730a3;
+    color: #ffffff;
+    font-size: 28px;
+}
+
+/* Tile containing 512 */
+.x512 {
+    background-color: #2563eb;
+    color: #ffffff;
+    font-size: 28px;
+}
+
+/* Tile containing 1024 */
+.x1024 {
+    background-color: #0891b2;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+/* Tile containing 2048 */
+.x2048 {
+    background-color: #0d9488;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+/* Higher-value tiles */
+.x4096, .x8192 {
+    background-color: #059669;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+/* Restart Game button */
+#restart-btn {
+    display: block;
+    margin: 25px auto 20px;
+    padding: 12px 24px;
+    background-color: #7c3aed;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Change button colour on hover */
+#restart-btn:hover {
+    background-color: #6d28d9;
+}
+
+/* Smaller screens */
+@media (max-width: 480px) {
+    #board {
+        width: 320px;
+        height: 320px;
+        gap: 6px;
+    }
+
+    .tile {
+        font-size: 25px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+}
+
+/* Animation when a new tile appears */
+@keyframes tileAppear {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animation when two tiles merge */
+@keyframes tileMerge {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Apply animation to newly generated tiles */
+.tile-new {
+    animation: tileAppear 0.2s ease-out;
+}
+
+/* Apply animation to merged tiles */
+.tile-merged {
+    animation: tileMerge 0.2s ease-in-out;
+}
+
+
+/* Progress scorekeeper container */
+#scorekeeper {
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1e293b;
+    border-radius: 12px;
+}
+
+/* Statistics layout */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Individual statistic cards */
+.stat-box {
+    flex: 1;
+    background-color: #334155;
+    padding: 12px 5px;
+    border-radius: 8px;
+}
+
+/* Statistic labels */
+.stat-box p {
+    color: #cbd5e1;
+    font-size: 13px;
+    margin: 5px 0;
+}
+
+/* Statistic values */
+.stat-box h3 {
+    color: #ffffff;
+    font-size: 22px;
+    margin: 8px 0;
+}
+
+/* Progress bar background */
+.progress-container {
+    width: 100%;
+    height: 14px;
+    background-color: #475569;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Progress bar fill */
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #8b5cf6;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* Progress percentage */
+#progress-text {
+    color: #c4b5fd;
+    font-weight: bold;
+}
+
+
+/* Fit the game and scoreboard on one screen */
+body {
+    margin: 0;
+    padding: 10px;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Reduce heading spacing */
+h1 {
+    font-size: 32px;
+    margin: 5px 0;
+}
+
+hr {
+    margin: 8px auto;
+}
+
+/* Make the game board smaller */
+#board {
+    width: min(320px, calc(100vw - 40px), 42vh);
+    height: min(320px, calc(100vw - 40px), 42vh);
+    border-width: 6px;
+    gap: 5px;
+    margin: 10px auto;
+    box-sizing: border-box;
+}
+
+/* Adjust tile text */
+.tile {
+    font-size: clamp(16px, 3vh, 26px);
+}
+
+/* Make the scorekeeper more compact */
+#scorekeeper {
+    width: min(400px, calc(100vw - 40px));
+    box-sizing: border-box;
+    padding: 12px;
+    margin: 10px auto;
+}
+
+#scorekeeper h2 {
+    font-size: 20px;
+    margin: 5px 0 10px;
+}
+
+/* Reduce statistics card spacing */
+.stats {
+    gap: 8px;
+}
+
+.stat-box {
+    padding: 8px 4px;
+}
+
+.stat-box p {
+    margin: 3px 0;
+    font-size: 12px;
+}
+
+.stat-box h3 {
+    margin: 4px 0;
+    font-size: 20px;
+}
+
+/* Reduce progress bar spacing */
+#scorekeeper > p {
+    margin: 8px 0;
+}
+
+/* Compact restart button */
+#restart-btn {
+    margin: 10px auto;
+    padding: 10px 20px;
+}
+
+/* Reduce Game Over message spacing */
+#game-over {
+    margin: 5px 0;
+}
+
+#game-over:empty {
+    display: none;
+}
+
+
+/* Achievements section */
+#achievements {
+    max-width: 400px;
+    margin: 15px auto;
+    padding: 15px;
+    background-color: #1e293b;
+    border-radius: 12px;
+}
+
+/* Achievement heading */
+#achievements h2 {
+    margin: 5px 0;
+    color: #ffffff;
+}
+
+/* Number of achievements unlocked */
+#achievement-count {
+    color: #c4b5fd;
+    font-size: 14px;
+}
+
+/* Arrange achievements in two columns */
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+/* Individual achievement cards */
+.achievement {
+    background-color: #334155;
+    padding: 12px 6px;
+    border-radius: 8px;
+    opacity: 0.6;
+}
+
+/* Achievement title */
+.achievement h3 {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Achievement description */
+.achievement p {
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+/* Achievement status */
+.achievement span {
+    font-size: 12px;
+    color: #cbd5e1;
+}
+
+/* Styling for unlocked achievements */
+.achievement.unlocked {
+    opacity: 1;
+    border: 1px solid #8b5cf6;
+}
+
+/* Green text when unlocked */
+.achievement.unlocked span {
+    color: #86efac;
+}
+
+
+/* Keep the page compact */
+body {
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Reduce heading spacing */
+h1 {
+    margin: 5px 0;
+    font-size: 32px;
+}
+
+hr {
+    margin: 8px auto;
+}
+
+/* Centre the game board at the top */
+#board {
+    width: min(300px, 42vh, calc(100vw - 30px));
+    height: min(300px, 42vh, calc(100vw - 30px));
+    margin: 10px auto;
+    box-sizing: border-box;
+    gap: 5px;
+    border-width: 6px;
+}
+
+/* Position Game Progress and Achievements side by side */
+#bottom-panels {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 15px;
+    max-width: 800px;
+    margin: 10px auto;
+}
+
+/* Game Progress panel */
+#bottom-panels #scorekeeper {
+    flex: 1;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+/* Achievements panel */
+#bottom-panels #achievements {
+    flex: 1;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+/* Reduce spacing inside both panels */
+#scorekeeper h2,
+#achievements h2 {
+    font-size: 20px;
+    margin: 5px 0 10px;
+}
+
+/* Compact statistics */
+.stat-box {
+    padding: 8px 4px;
+}
+
+.stat-box p {
+    margin: 3px 0;
+    font-size: 12px;
+}
+
+.stat-box h3 {
+    margin: 4px 0;
+    font-size: 20px;
+}
+
+/* Compact achievement cards */
+.achievement {
+    padding: 6px;
+}
+
+.achievement h3 {
+    font-size: 13px;
+    margin: 4px 0;
+}
+
+.achievement p {
+    font-size: 12px;
+    margin: 4px 0;
+}
+
+.achievement span {
+    font-size: 12px;
+}
+
+/* Reduce Game Over message spacing */
+#game-over {
+    margin: 5px 0;
+}
+
+#game-over:empty {
+    display: none;
+}
+
+/* Restart button underneath both panels */
+#restart-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+}
+
+/* Adjust layout for smaller screens */
+@media (max-width: 600px) {
+    #bottom-panels {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

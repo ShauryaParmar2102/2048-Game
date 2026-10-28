@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>2048</title>
+
+    <link rel="stylesheet" href="2048.css">
+    <script src="2048.js"></script>
+</head>
+
+<body>
+
+    <h1>2048</h1>
+    <hr>
+
+    <!-- Game Over message -->
+    <h2 id="game-over"></h2>
+
+    <!-- Game board at the top -->
+    <div id="board"></div>
+
+    <!-- Game Progress and Achievements underneath -->
+    <div id="bottom-panels">
+
+        <!-- Game statistics -->
+        <div id="scorekeeper">
+
+            <h2>Game Progress</h2>
+
+            <div class="stats">
+
+                <div class="stat-box">
+                    <p>Score</p>
+                    <h3 id="score">0</h3>
+                </div>
+
+                <div class="stat-box">
+                    <p>Best Score</p>
+                    <h3 id="best-score">0</h3>
+                </div>
+
+                <div class="stat-box">
+                    <p>Moves</p>
+                    <h3 id="moves">0</h3>
+                </div>
+
+            </div>
+
+            <!-- Progress towards the 2048 tile -->
+            <p>Highest Tile: <span id="highest-tile">2</span></p>
+
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+
+            <p id="progress-text">0%</p>
+
+        </div>
+
+        <!-- Game achievements -->
+        <div id="achievements">
+
+            <h2>Achievements</h2>
+
+            <p id="achievement-count">0 / 4 unlocked</p>
+
+            <div class="achievement-grid">
+
+                <div class="achievement" id="achievement-first">
+                    <h3>✨ First Merge</h3>
+                    <p>Merge two tiles</p>
+                    <span>Locked</span>
+                </div>
+
+                <div class="achievement" id="achievement-128">
+                    <h3>🥉 Getting Started</h3>
+                    <p>Reach tile 128</p>
+                    <span>Locked</span>
+                </div>
+
+                <div class="achievement" id="achievement-1024">
+                    <h3>⭐ Halfway There</h3>
+                    <p>Reach tile 1024</p>
+                    <span>Locked</span>
+                </div>
+
+                <div class="achievement" id="achievement-2048">
+                    <h3>🏆 2048 Champion</h3>
+                    <p>Reach tile 2048</p>
+                    <span>Locked</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Restart button -->
+    <button id="restart-btn" onclick="restartGame()">
+        Restart Game
+    </button>
+
+</body>
+</html>
