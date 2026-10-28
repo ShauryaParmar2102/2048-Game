@@ -455,6 +455,22 @@ function restartGame() {
     setGame();
 }
 
+/**
+ * Resets the player's saved best score.
+ * @returns {void}
+ */
+function resetBestScore() {
+    const confirmed = confirm("Are you sure you want to reset your best score?");
+
+    if (!confirmed) return;
+
+    localStorage.removeItem("bestScore");
+    bestScore = 0;
+
+    // Update the best score displayed on the page
+    document.getElementById("best-score").innerText = bestScore;
+}
+
 
 /**
  * Unlocks an achievement and saves it to localStorage.

@@ -554,9 +554,206 @@ hr {
 }
 
 /* Adjust layout for smaller screens */
+
+/* Mobile layout - no scrolling */
 @media (max-width: 600px) {
-    #bottom-panels {
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    body {
+        display: flex;
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100dvh;
+        padding: 5px;
+        box-sizing: border-box;
+        gap: 5px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin: 2px 0;
+    }
+
+    hr {
+        margin: 2px auto;
+    }
+
+    /* Smaller game board */
+    #board {
+        width: min(240px, 28dvh);
+        height: min(240px, 28dvh);
+        margin: 5px auto;
+        flex-shrink: 0;
+    }
+
+    /* Stack panels vertically */
+    #bottom-panels {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 360px;
+        gap: 6px;
+        margin: 5px auto;
+        min-height: 0;
+    }
+
+    /* Compact panels */
+    #bottom-panels #scorekeeper,
+    #bottom-panels #achievements {
+        width: 100%;
+        max-width: 360px;
+        padding: 8px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    #scorekeeper h2,
+    #achievements h2 {
+        font-size: 16px;
+        margin: 3px 0;
+    }
+
+    .stat-box {
+        padding: 5px 2px;
+    }
+
+    .stat-box p,
+    .achievement p {
+        font-size: 11px;
+        margin: 2px 0;
+    }
+
+    .stat-box h3 {
+        font-size: 16px;
+        margin: 2px 0;
+    }
+
+    .achievement-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 5px;
+    }
+
+    .achievement {
+        padding: 5px;
+    }
+
+    .achievement h3 {
+        font-size: 11px;
+        margin: 2px 0;
+    }
+
+    .achievement span {
+        font-size: 10px;
+    }
+
+    #restart-btn,
+    #reset-score-btn {
+        padding: 7px 12px;
+        font-size: 12px;
+        margin: 4px auto;
+    }
+}
+
+
+
+/* Reset Best Score Button */
+#reset-score-btn {
+    display: block;
+    margin: 12px auto;
+    padding: 10px 18px;
+    background-color: #991b1b;
+    color: white;
+    border: 1px solid #dc2626;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+#reset-score-btn:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+/* Click effect */
+#reset-score-btn:active {
+    transform: scale(0.96);
+}
+
+/* Keyboard accessibility */
+#reset-score-btn:focus-visible {
+    outline: 2px solid #fca5a5;
+    outline-offset: 3px;
+}
+
+
+/* Game control buttons */
+.game-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+/* Shared button styling */
+.game-buttons button {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 10px 8px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Restart Game button */
+.game-buttons #restart-btn {
+    background-color: #7c3aed;
+}
+
+.game-buttons #restart-btn:hover {
+    background-color: #6d28d9;
+    transform: translateY(-2px);
+}
+
+/* Reset Best Score button */
+.game-buttons #reset-score-btn {
+    background-color: #991b1b;
+}
+
+.game-buttons #reset-score-btn:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .game-buttons {
+        gap: 6px;
+        margin-top: 8px;
+    }
+
+    .game-buttons button {
+        padding: 8px 5px;
+        font-size: 11px;
     }
 }

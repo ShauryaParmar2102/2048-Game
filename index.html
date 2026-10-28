@@ -51,12 +51,28 @@
 
             <!-- Progress towards the 2048 tile -->
             <p>Highest Tile: <span id="highest-tile">2</span></p>
+            <p>Progress Towards 2048</p>
 
             <div class="progress-container">
                 <div id="progress-bar"></div>
             </div>
 
             <p id="progress-text">0%</p>
+
+            <!-- Game control buttons -->
+            <div class="game-buttons">
+
+                <!-- Restart the current game -->
+                <button id="restart-btn" onclick="restartGame()">
+                    Restart Game
+                </button>
+
+                <!-- Reset the saved best score -->
+                <button id="reset-score-btn" onclick="resetBestScore()">
+                    Reset Best Score
+                </button>
+
+            </div>
 
         </div>
 
@@ -98,11 +114,6 @@
         </div>
 
     </div>
-
-    <!-- Restart button -->
-    <button id="restart-btn" onclick="restartGame()">
-        Restart Game
-    </button>
 
 </body>
 </html>
